@@ -1,9 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import ReactNativeHapticFeedback from "react-native-haptic-feedback";
 
 import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
@@ -65,13 +60,19 @@ function App(): JSX.Element {
       default:
         break;
     }
+    const options = {
+      enableVibrateFallback: true,
+      ignoreAndroidSystemSettings: false,
+    };
+    
+    ReactNativeHapticFeedback.trigger("impactHard", options);
   };
   console.log(imageUri);
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.container}>
+        <View >
           <Dice imageUrl={imageUri} />
           <Pressable onPress={handleDiceRoll}>
             <Text style={styles.btn}>Roll the dice ..</Text>
@@ -90,15 +91,22 @@ const styles = StyleSheet.create({
     height: 200,
   },
   container: {
+    // flex:1,
+      margin:50,
     // flex: 1,
-    // flexDirection:"column",
+    // flexDirection:"row",
     // justifyContent: 'center',
     // alignContent: 'center',
   },
   btn: {
     
-    fontSize:20,
+    fontSize:22,
     backgroundColor:"grey",
+    paddingHorizontal:80,
+    elevation:9,
+    paddingVertical:8,
+    color:"white",
+    fontWeight:"900",
     margin:5,
   },
 });
