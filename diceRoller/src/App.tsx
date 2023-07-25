@@ -27,7 +27,7 @@ const Dice = (props:diceprop): JSX.Element => {
 
   return (
     <View>
-      <Image source={imageUrl} style={styles.diceImage} />
+      <Image source={props.imageUrl} style={styles.diceImage} />
     </View>
   );
 };
