@@ -19,9 +19,9 @@ import dice4 from '../assets/dice-six-faces-four.png';
 import dice5 from '../assets/dice-six-faces-five.png';
 import dice6 from '../assets/dice-six-faces-six.png';
 
-type diceprop = PropsWithChildren<ImageSourcePropType>;
+type diceprop = PropsWithChildren<{imageUrl:ImageSourcePropType}>;
 
-const Dice = ({imageUrl}): JSX.Element => {
+const Dice = (props:diceprop): JSX.Element => {
   // console.log(u);
   // console.log(sou);
 
